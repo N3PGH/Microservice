@@ -62,8 +62,8 @@ eksctl version
 
 ```bash
 eksctl create cluster --name=EKS-1 \
-                      --region=us-east-1 \
-                      --zones=us-east-1a,ap-south-1b \
+                      --region=ca-central-1 \
+                      --zones=ca-central-1a,ca-central-1b \
                       --without-nodegroup
 
 eksctl utils associate-iam-oidc-provider \
@@ -72,7 +72,7 @@ eksctl utils associate-iam-oidc-provider \
     --approve
 
 eksctl create nodegroup --cluster=EKS-1 \
-                       --region=ap-south-1 \
+                       --region=ca-central-1 \
                        --name=node2 \
                        --node-type=t3.medium \
                        --nodes=3 \
@@ -80,7 +80,7 @@ eksctl create nodegroup --cluster=EKS-1 \
                        --nodes-max=4 \
                        --node-volume-size=20 \
                        --ssh-access \
-                       --ssh-public-key=DevOps \
+                       --ssh-public-key=master \
                        --managed \
                        --asg-access \
                        --external-dns-access \
